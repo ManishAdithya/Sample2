@@ -1,50 +1,33 @@
-##  Bypassing Android Password Verification with Frida
+##  Harcoded decryptable md5 hash
 
-This project demonstrates an Android application that verifies user credentials (username and password) before displaying a message. The goal is to bypass the password verification mechanism using Frida, a dynamic instrumentation toolkit.
+This is a simple Android application where users are required to enter a password. If the password matches a specific MD5 hash, the app will display a success message along with the flag.
 
-The app performs an MD5 hash check on the password and compares it with a pre-set hash. If the username is "admin" and the password matches the MD5 hash, the app displays a success message; otherwise, it displays a "Wrong Credentials" message.
-
-The Frida script allows us to bypass the password check by hooking into the String.equals() method to always return true, enabling any random password to be accepted.
 
 ### 1. Android Application Code
 
-![image](https://github.com/user-attachments/assets/5ddeb20b-bdc2-44e6-bdd2-c7eb2883208d)
+![image](https://github.com/user-attachments/assets/b5aef2e4-f3e8-48ae-9226-8f9fe5e53c78)
+
+The Android app consists of a basic UI with two EditText fields for username and password. Below is a breakdown of the relevant parts:
+
+**Code Overview**
+
+![image](https://github.com/user-attachments/assets/65de9577-152d-49cb-9b1b-3db55a1c61b1)
 
 
-The Android app consists of a basic UI with two EditText fields for username and password, and a Button to trigger the login logic. Below is a breakdown of the relevant parts:
+**Key Points**
 
-**Fields**
+The app uses DigestUtils.md5Hex() to hash the password entered by the user.
 
-**Button f927b**: Button that the user clicks to trigger login.
+The app checks if the hashed password matches the hardcoded hash: b74dec4f39d35b6a2e6c48e637c8aedb.
 
-**EditText f928c**: EditText where the user inputs the username.
-
-**EditText d**: EditText where the user inputs the password.
-
-**b e, g f**: Objects from package c.b.a.b and c.b.a.g, possibly related to some logic (like message display).
-
-**Login Logic (onClick())**
-
-If the username entered in f928c is "admin", it proceeds to the password check.
-
-The password entered in d is hashed using MD5.
-
-If the hashed password matches the pre-set hash (a2a3d412e92d896134d9c9126d756f), the app displays a success message.
-
-If the hash doesn't match, a "Wrong Credentials!" message is shown.
+![image](https://github.com/user-attachments/assets/33b389e8-7e6c-4a44-b673-a14f4e3f82ad)
 
 
-### 2. Bypassing the Password Check with Frida 
+Upon success, the app displays a flag in the format CTFlearn{Spring2019_is_not_secure!}.
 
-![image](https://github.com/user-attachments/assets/910ddc72-b4c4-4fec-8f91-829b76a7aeef)
-
-We can use Frida to intercept and modify the behavior of the equals() method of the String class. This method is used to compare the hashed password with the stored hash. By hooking this method, we can force the app to always return true for the password comparison, bypassing the actual hash check.
+![image](https://github.com/user-attachments/assets/b8a1d343-aeec-4c5d-b5d8-02e30d0a6d20)
 
 
-
-**Effect:** This Frida script causes the password check to always succeed, regardless of the actual input, thus bypassing the login security.
-
-![image](https://github.com/user-attachments/assets/94a96ff2-1634-43b1-b755-3f6e8397bac5)
 
 
 
