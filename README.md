@@ -12,13 +12,13 @@ The Android app consists of a basic UI with two EditText fields for username and
 
 **Fields**
 
-*Button f927b*: Button that the user clicks to trigger login.
+**Button f927b**: Button that the user clicks to trigger login.
 
-EditText f928c: EditText where the user inputs the username.
+**EditText f928c**: EditText where the user inputs the username.
 
-EditText d: EditText where the user inputs the password.
+**EditText d**: EditText where the user inputs the password.
 
-b e, g f: Objects from package c.b.a.b and c.b.a.g, possibly related to some logic (like message display).
+**b e, g f**: Objects from package c.b.a.b and c.b.a.g, possibly related to some logic (like message display).
 
 **Login Logic (onClick())**
 
