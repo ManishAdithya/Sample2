@@ -37,7 +37,7 @@ We can use Frida to intercept and modify the behavior of the equals() method of 
 
 
 
-**Effect: ** This Frida script causes the password check to always succeed, regardless of the actual input, thus bypassing the login security.
+**Effect:** This Frida script causes the password check to always succeed, regardless of the actual input, thus bypassing the login security.
 
 
 
