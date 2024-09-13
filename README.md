@@ -8,6 +8,9 @@ The Frida script allows us to bypass the password check by hooking into the Stri
 
 ### 1. Android Application Code
 
+![image](https://github.com/user-attachments/assets/5ddeb20b-bdc2-44e6-bdd2-c7eb2883208d)
+
+
 The Android app consists of a basic UI with two EditText fields for username and password, and a Button to trigger the login logic. Below is a breakdown of the relevant parts:
 
 **Fields**
@@ -33,11 +36,16 @@ If the hash doesn't match, a "Wrong Credentials!" message is shown.
 
 ### 2. Bypassing the Password Check with Frida 
 
+![image](https://github.com/user-attachments/assets/910ddc72-b4c4-4fec-8f91-829b76a7aeef)
+
 We can use Frida to intercept and modify the behavior of the equals() method of the String class. This method is used to compare the hashed password with the stored hash. By hooking this method, we can force the app to always return true for the password comparison, bypassing the actual hash check.
 
 
 
 **Effect:** This Frida script causes the password check to always succeed, regardless of the actual input, thus bypassing the login security.
+
+![image](https://github.com/user-attachments/assets/94a96ff2-1634-43b1-b755-3f6e8397bac5)
+
 
 
 
