@@ -10,8 +10,6 @@ The Frida script allows us to bypass the password check by hooking into the Stri
 
 The Android app consists of a basic UI with two EditText fields for username and password, and a Button to trigger the login logic. Below is a breakdown of the relevant parts:
 
-**MainActivity Class:** 
-
 **Fields**
 
 Button f927b: Button that the user clicks to trigger login.
